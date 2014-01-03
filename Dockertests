@@ -2,8 +2,8 @@ FROM drewcrawford/caffeinebase
 MAINTAINER drew
 
 #run router
-ADD . .
+ADD . caffeine/
 EXPOSE 55555 55555
 
-ENTRYPOINT ["python3.3", "tests.py"]
+ENTRYPOINT ["python3.3", "caffeine/tests.py"]
 
