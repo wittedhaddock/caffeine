@@ -5,5 +5,5 @@ MAINTAINER drew
 ADD . .
 EXPOSE 55555 55555
 
-ENTRYPOINT python3.3 tests.py
+ENTRYPOINT ["python3.3", "tests.py"]
 
