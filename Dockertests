@@ -1,9 +1,12 @@
 FROM drewcrawford/caffeinebase
 MAINTAINER drew
 
+RUN pip3.3 install coverage
+
+
 #run router
 ADD . caffeine/
 EXPOSE 55555 55555
 
-ENTRYPOINT ["python3.3", "caffeine/tests.py"]
+ENTRYPOINT ["coverage","run", "caffeine/tests.py"]
 
