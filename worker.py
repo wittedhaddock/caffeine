@@ -2,6 +2,7 @@
 #©2013 Drew Crawford Apps.  All Rights Reserved.
 # See LICENSE file for details.
 
+import pack
 
 # A base worker class.  Primarily used for plubming.
 class Worker:
@@ -48,3 +49,6 @@ class RPCWorker(Worker):
         import security
         security.selector_is_ok(obj, selector)
         method = getattr(obj, selector)
+        kwargs = pack.unpack(msg["_a"])
+        return method(**kwargs)
+        
