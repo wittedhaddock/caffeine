@@ -8,8 +8,11 @@ class TestSequence(unittest.TestCase):
         import caffeine
         import subprocess
         import os.path
+        print("Everything started OK?")
+
         self.router = subprocess.Popen(["python3",os.path.join(caffeine.__path__[0],"router.py")],stdin=None,stdout=sys.stdout,stderr=sys.stderr)
-        self.worker = subprocess.Popen(["python3",os.path.join(caffeine.__path__[0],"worker.py")],stdin=None,stdout=sys.stdout,stderr=sys.stderr)
+
+        self.worker = subprocess.Popen(["python3",os.path.join(caffeine.__path__[0],"testRouterWorkerProcess.py")],stdin=None,stdout=sys.stdout,stderr=sys.stderr)
 
     def test_rountrip(self):
         import zmq
