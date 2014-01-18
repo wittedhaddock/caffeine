@@ -1,0 +1,10 @@
+{
+    // ...
+
+    "settings": {
+        "python_interpreter": "/usr/local/bin/python3.3",
+        "pep8_ignore":["E501"],
+        "complete_parameters":true
+    },
+    "folders":[{"path":"."}]
+}
