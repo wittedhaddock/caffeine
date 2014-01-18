@@ -3,6 +3,7 @@
 #See LICENSE file for details.
 
 
+# A base worker class.  Primarily used for plubming.
 class Worker:
     def __init__(self):
         pass
@@ -29,3 +30,5 @@ class Worker:
         import threading
         self.thread = threading.Thread(target=self.runloop)
         self.thread.start()
+
+
