@@ -39,5 +39,8 @@ class TestSequence(unittest.TestCase):
         self.assertTrue(fooPackedSchema["functions"])
 
     def test_RPCCall(self):
-        import worker
-        class TestWorker = worker.Worker
+        pass
+        #import worker
+        #class TestWorker(worker.Worker):
+        #    def handleMessage(self,msg):
+
