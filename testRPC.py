@@ -4,9 +4,9 @@ class TestSequence(unittest.TestCase):
     def setUp(self):
     	pass
     def test_decorate(self):
-    	@RPC.CaffeineClass
+    	@RPC.Class
     	class Foo:
-    		@RPC.CaffeinePublicMethod
+    		@RPC.PublicMethod
     		@classmethod
     		def helloWorld(self):
     			return "hello world"
@@ -15,9 +15,9 @@ class TestSequence(unittest.TestCase):
     	self.assertEquals(RPC.root_level_objects["Foo"],Foo)
 
     def test_schema(self):
-    	@RPC.CaffeineClass
+    	@RPC.Class
     	class Foo:
-    		@RPC.CaffeinePublicMethod
+    		@RPC.PublicMethod
     		@classmethod
     		def stringLength(self,string:str) -> int:
     			return len(string)
@@ -30,6 +30,9 @@ class TestSequence(unittest.TestCase):
     	directory = RPC.CaffeineService.directory()
     	fooPackedSchema = directory["Foo"]._caffeinePack()
     	self.assertTrue(fooPackedSchema["functions"])
+
+    def test_RPCCall(self):
+    	pass
 
 
 

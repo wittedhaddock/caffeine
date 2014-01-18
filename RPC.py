@@ -3,7 +3,7 @@ root_level_objects = {}
 
 
 # This sweeps marked functions for RPC access.
-def CaffeineClass(klass):
+def Class(klass):
     root_level_objects[klass.__name__]=klass
     klass._caffeineRPC = {}
     for name,method in klass.__dict__.items():
@@ -12,7 +12,7 @@ def CaffeineClass(klass):
     return klass
 
 #We use a mark and sweep pattern.  The class doesn't exist at the time we create the function, so we just mark.  The sweep occurs in CaffeineClass.
-def CaffeinePublicMethod(method):
+def PublicMethod(method):
     method._caffeineRPC = True
     return method
 
@@ -33,9 +33,9 @@ class Schema:
     def __repr__(self):
         return "<Schema for %s>" % self.klass
 
-@CaffeineClass
+@Class
 class CaffeineService:
-    @CaffeinePublicMethod
+    @PublicMethod
     @classmethod
     def directory(self):
         schemas = {}
