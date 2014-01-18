@@ -40,14 +40,17 @@ class TestSequence(unittest.TestCase):
 
     def test_RPCCall(self):
         import worker
+        import pack
         @RPC.Class
         class Foo:
+
             @RPC.PublicMethod
             @classmethod
-            def stringLength(self,string: str) -> int:
+            def stringLength(self, string: str) -> int:
                 return len(string)
 
-        RPCWorker = worker.RPCWorker([Foo])
-        RPCWorker.handleMessage({"_c":"Foo","_a",{"string":"test123"}})
-        
+        RPCWorker = worker.RPCWorker({"Foo": Foo})
+        kwargs = {"string":"test123"}
+        packed_kwargs = pack.pack(kwargs)
+        RPCWorker.handleMessage({"_c": "Foo", "_s": "stringLength", "_a": packed_kwargs})
 

@@ -42,12 +42,11 @@ class Worker:
 class RPCWorker(Worker):
 
     def __init__(self, root_objects):
-        self.root_objects = {}
+        self.root_objects = root_objects
 
     def handleMessage(self, msg):
-        msg = msg[0]
         obj = self.root_objects[msg["_c"]]
-        selector = self.root_objects[msg["_s"]]
+        selector = msg["_s"]
         import security
         security.selector_is_ok(obj, selector)
         method = getattr(obj, selector)
