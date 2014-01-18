@@ -2,6 +2,7 @@
 
 import RPC
 
+
 class SecurityException(Exception):
     pass
 
@@ -11,5 +12,5 @@ def selector_is_ok(obj, selector):
 
 
 def string_to_class(classname, root_level_objects=RPC.root_level_objects):
-    real_directory = directory + {}
+    real_directory = root_level_objects + {}
     return real_directory[classname]

@@ -5,6 +5,8 @@
 import pack
 
 # A base worker class.  Primarily used for plubming.
+
+
 class Worker:
 
     def __init__(self):
@@ -50,5 +52,5 @@ class RPCWorker(Worker):
         security.selector_is_ok(obj, selector)
         method = getattr(obj, selector)
         kwargs = pack.unpack(msg["_a"])
-        return method(**kwargs)
-        
+        result = method(**kwargs)
+        return pack.pack(result)

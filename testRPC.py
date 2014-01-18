@@ -39,8 +39,15 @@ class TestSequence(unittest.TestCase):
         self.assertTrue(fooPackedSchema["functions"])
 
     def test_RPCCall(self):
-        pass
-        #import worker
-        #class TestWorker(worker.Worker):
-        #    def handleMessage(self,msg):
+        import worker
+        @RPC.Class
+        class Foo:
+            @RPC.PublicMethod
+            @classmethod
+            def stringLength(self,string: str) -> int:
+                return len(string)
+
+        RPCWorker = worker.RPCWorker([Foo])
+        RPCWorker.handleMessage({"_c":"Foo","_a",{"string":"test123"}})
+        
 
