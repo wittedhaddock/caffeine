@@ -26,7 +26,7 @@ class TestSequence(unittest.TestCase):
         socket.curve_secretkey = client_secret
         socket.curve_serverkey = caffeine.well_known_public_key
         socket.connect("tcp://localhost:55555")
-        socket.send_multipart([b'test1',b'test2'])
+        socket.send_multipart([b'test1'])
         msg = socket.recv_multipart()
         print (msg)
         self.assertEquals(msg[1],b"worker says hello")            

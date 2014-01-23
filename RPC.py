@@ -1,5 +1,7 @@
 root_level_objects = {}
 
+import pack
+import security
 
 # This sweeps marked functions for RPC access.
 def Class(klass):
@@ -20,6 +22,7 @@ def PublicMethod(method):
     return method
 
 
+@Class
 class Schema:
 
     def __init__(self, klass):
@@ -31,8 +34,15 @@ class Schema:
         d["functions"] = {}
         for name, method in self.klass.__dict__.items():
             if hasattr(method, "_caffeineRPC"):
-                d["functions"][name] = method.__func__.__annotations__
+                d["functions"][name] = pack.pack(method.__func__.__annotations__)
         return d
+    @classmethod
+    def _caffeineUnpack(klas,dykt):
+        #this creates a schema based on the client's idea of the function signature.
+        #it's not immediately clear whether or not this is the desired behavior, but it passes the unit tests.
+        #somebody should revisit this if Python is used as a client more extensively.
+        klass = security.string_to_class(dykt["_c"])
+        return Schema(klass)
 
     def __repr__(self):
         return "<Schema for %s>" % self.klass

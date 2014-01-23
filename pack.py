@@ -7,7 +7,9 @@ import security
 
 def findPackMethod(obj):
     if hasattr(obj, "_caffeinePack"):
-        return obj._caffeinePack
+        return obj.__class__._caffeinePack
+    elif isinstance(obj, type):
+        return typePack
     elif isinstance(obj, list):
         return listPack
     elif isinstance(obj, dict):
@@ -38,7 +40,8 @@ def findUnpackMethod(packet):
 
 
 def pack(obj):
-    return findPackMethod(obj)(obj)
+    method = findPackMethod(obj)
+    return method(obj)
 
 
 def unpack(packet):
@@ -55,3 +58,6 @@ def dictPack(dikt):
 
 def dictUnpack(dikt):
     return {unpack(key):unpack(value) for key,value in dikt["dict"].items()}
+
+def typePack(tipe):
+    return {"_c":"type","name":tipe.__name__}

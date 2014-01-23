@@ -2,6 +2,7 @@ FROM drewcrawford/caffeinebase
 MAINTAINER drew
 
 RUN pip3.3 install coverage
+RUN pip3.3 install u-msgpack-python
 
 
 #run router
