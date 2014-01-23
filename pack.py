@@ -35,6 +35,8 @@ def findUnpackMethod(packet):
         return klass._caffeineUnpack
     elif klassname == "dict":
         return dictUnpack
+    elif klassname == "type":
+        return typeUnpack
     else:
         raise ValueError("Don't know how to unpack %s" % klassname)
 
@@ -63,3 +65,6 @@ def dictUnpack(dikt):
 
 def typePack(tipe):
     return {"_c": "type", "name": tipe.__name__}
+
+def typeUnpack(tipe):
+    return security.string_to_class(tipe["name"])

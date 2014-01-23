@@ -42,12 +42,12 @@ class Schema:
 
     @classmethod
     def _caffeineUnpack(klas, dykt):
-        # this creates a schema based on the client's idea of the function signature.
-        # it's not immediately clear whether or not this is the desired behavior, but it passes the unit tests.
-        # somebody should revisit this if Python is used as a client more
-        # extensively.
         klass = security.string_to_class(dykt["_c"])
-        return Schema(klass)
+        newSchema = Schema(klass)
+        newSchema.functions = {}
+        for name,methodpack in dykt["functions"].items():
+            newSchema.functions[name] = pack.unpack(methodpack)
+        return newSchema
 
     def __repr__(self):
         return "<Schema for %s>" % self.klass

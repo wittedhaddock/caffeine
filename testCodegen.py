@@ -1,6 +1,7 @@
 #!python3
 import RPC
 import unittest
+import codegen
 import worker
 
 
@@ -9,7 +10,7 @@ class TestSequence(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_ObjC(self):
+    def test_objc(self):
 
         @RPC.Class
         class Foo:
@@ -19,13 +20,16 @@ class TestSequence(unittest.TestCase):
             def stringLength(self, string: str) -> int:
                 return len(string)
 
-        # spin up a client
-        client = worker.RPCClient(URL="tcp://127.0.0.1:12345")
 
         # spin up a worker that contains this class
-        RPCWorker = worker.RPCWorker({"Foo": Foo}, URL="tcp://127.0.0.1:12345")
+        RPCWorker = worker.RPCWorker({"Foo": Foo}, URL="inproc://test_objc")
         RPCWorker.start()
-
-        serviceObject = client.CaffeineService
-        print(serviceObject.directory(), "directory")
+        class NotArgs:
+            pass
+        args = NotArgs()
+        args.language="objc"
+        args.url="inproc://test_objc"
+        codegen.codegen(args)
         RPCWorker.stop()
+
+
