@@ -36,8 +36,11 @@ class Schema:
         d["functions"] = {}
         for name, method in self.klass.__dict__.items():
             if hasattr(method, "_caffeineRPC"):
-                d["functions"][name] = pack.pack(
-                    method.__func__.__annotations__)
+                annotations = dict(method.__func__.__annotations__)
+                if "return" not in annotations:
+                    annotations["return"] = None
+
+                d["functions"][name] = pack.pack(annotations)
         return d
 
     @classmethod

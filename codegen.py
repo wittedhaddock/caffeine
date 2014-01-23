@@ -9,12 +9,29 @@ parser.add_argument("--url", help="URL for the schema", required=True)
 
 class ObjCCodeGen:
 
+
+
     def __init__(self, schemas, args):
         self.schemas = schemas
         self.args = args
 
+    def objcType(self,pythonType):
+        typemap = {None:"void"}
+        if pythonType in typemap:
+            return typemap[pythonType]
+        return pythonType.__name__
+
     def functionDefinition(self, name, annotation):
         print(name, annotation, "fd")
+        definition = ""
+        #so okay, first, we emit either + or -.  At some future point we should support -, but today we only support +.
+        definition += "+ "
+        #next, we figure out the return type
+        definition += "(%s)" % self.objcType(annotation["return"])
+        #and the method name
+        definition += name
+        print(definition)
+
 
     def emitSchema(self, name, schema):
         for name, annotation in schema.functions.items():
