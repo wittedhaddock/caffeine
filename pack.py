@@ -10,8 +10,8 @@ def findPackMethod(obj):
         return obj.__class__._caffeinePack
     elif isinstance(obj, type):
         return typePack
-    elif obj==None:
-        return lambda x: {"_c":"NoneType"} #we use a special sentinal value
+    elif obj is None:
+        return lambda x: {"_c": "NoneType"}  # we use a special sentinal value
     elif isinstance(obj, list):
         return listPack
     elif isinstance(obj, dict):
@@ -32,7 +32,7 @@ def findUnpackMethod(packet):
 
     print(packet, "packet was")
     klassname = packet["_c"]
-    if klassname=="NoneType":
+    if klassname == "NoneType":
         return lambda x: None
     klass = security.string_to_class(klassname)
     if hasattr(klass, "_caffeineUnpack"):
@@ -69,6 +69,7 @@ def dictUnpack(dikt):
 
 def typePack(tipe):
     return {"_c": "type", "name": tipe.__name__}
+
 
 def typeUnpack(tipe):
     return security.string_to_class(tipe["name"])

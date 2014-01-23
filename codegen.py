@@ -16,7 +16,8 @@ class ObjCCodeGen:
         self.args = args
 
     def objcType(self,pythonType):
-        typemap = {None:"void"}
+        print ('type',pythonType)
+        typemap = {None:"void",str:"NSString*"}
         if pythonType in typemap:
             return typemap[pythonType]
         return pythonType.__name__
@@ -30,7 +31,28 @@ class ObjCCodeGen:
         definition += "(%s)" % self.objcType(annotation["return"])
         #and the method name
         definition += name
-        print(definition)
+
+        if len(annotation)==1:
+            return definition
+
+        #append With
+        definition += "With"
+        wantsCap = True
+
+        for argname in sorted(annotation.keys()):
+            if argname=="return": continue
+            if wantsCap:
+                selectorVersion = argname[0].upper() + argname[1:]
+                wantsCap = False
+            else:
+                selectorVersion = argname
+
+            tipe = annotation[argname]
+            objcType = self.objcType(tipe)
+
+            definition += selectorVersion + ":(%s)" % objcType + argname + " "
+
+        return definition
 
 
     def emitSchema(self, name, schema):
