@@ -1,8 +1,11 @@
 
 import unittest
+
+
 class TestSequence(unittest.TestCase):
+
     def setUp(self):
-        #we start the router
+        # we start the router
         import sys
         sys.path.append("..")
         import caffeine
@@ -10,9 +13,11 @@ class TestSequence(unittest.TestCase):
         import os.path
         print("Everything started OK?")
 
-        self.router = subprocess.Popen(["python3",os.path.join(caffeine.__path__[0],"router.py")],stdin=None,stdout=sys.stdout,stderr=sys.stderr)
+        self.router = subprocess.Popen(
+            ["python3", os.path.join(caffeine.__path__[0], "router.py")], stdin=None, stdout=sys.stdout, stderr=sys.stderr)
 
-        self.worker = subprocess.Popen(["python3",os.path.join(caffeine.__path__[0],"testRouterWorkerProcess.py")],stdin=None,stdout=sys.stdout,stderr=sys.stderr)
+        self.worker = subprocess.Popen(
+            ["python3", os.path.join(caffeine.__path__[0], "testRouterWorkerProcess.py")], stdin=None, stdout=sys.stdout, stderr=sys.stderr)
 
     def test_rountrip(self):
         import zmq
@@ -28,12 +33,9 @@ class TestSequence(unittest.TestCase):
         socket.connect("tcp://localhost:55555")
         socket.send_multipart([b'test1'])
         msg = socket.recv_multipart()
-        print (msg)
-        self.assertEquals(msg[1],b"worker says hello")            
+        print(msg)
+        self.assertEquals(msg[1], b"worker says hello")
 
     def tearDown(self):
         self.router.kill()
         self.worker.kill()
-
-
-

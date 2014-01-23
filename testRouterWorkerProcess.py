@@ -1,12 +1,14 @@
 import sys
-sys.path.append(sys.path[0]+"/..")
+sys.path.append(sys.path[0] + "/..")
 import caffeine.worker
 
+
 class TestRouterWorker(caffeine.worker.Worker):
-	def handleMessage(self,message):
-		print("worker saying hello",message)
-		return b'worker says hello'
 
-if __name__=="__main__":
+    def handleMessage(self, message):
+        print("worker saying hello", message)
+        return b'worker says hello'
 
-	TestRouterWorker().runloop()
+if __name__ == "__main__":
+
+    TestRouterWorker().runloop()

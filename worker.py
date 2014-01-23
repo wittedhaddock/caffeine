@@ -45,26 +45,26 @@ class Worker:
         poller = zmq.Poller()
         poller.register(socket, zmq.POLLIN)
         while not self.should_stop:
-            print ("got here")
+            print("got here")
             socks = dict(poller.poll(timeout=500))
-            if socket in socks and socks[socket]==zmq.POLLIN:
+            if socket in socks and socks[socket] == zmq.POLLIN:
                 message = socket.recv_multipart()
-                #so there are two cases here.  Either the message is of length 3, which is a router-type packet.  In this case we preserve the header. The header exists to help the router identify where the packet should ultimately go. 
-                #or, the message is of length 1, which is a direct connection.
+                # so there are two cases here.  Either the message is of length 3, which is a router-type packet.  In this case we preserve the header. The header exists to help the router identify where the packet should ultimately go.
+                # or, the message is of length 1, which is a direct connection.
                 header = None
 
-                if len(message)==3:
+                if len(message) == 3:
                     header = message[0]
                     message = message[2]
-                elif len(message)==1:
+                elif len(message) == 1:
                     message = message[0]
                 else:
                     raise ValueError("Unknown message format %s" % message)
                 response = self.handleMessage(message)
-                print("response",response)
+                print("response", response)
                 if header:
-                    print ("worker sending %s" % [header,b'',response])
-                    socket.send_multipart([header,response])
+                    print("worker sending %s" % [header, b'', response])
+                    socket.send_multipart([header, response])
                 else:
                     socket.send_multipart([response])
 
@@ -85,22 +85,24 @@ class RPCWorker(Worker):
     def __init__(self, root_objects, URL=caffeine.internal_url):
         self.root_objects = root_objects
         import RPC
-        self.root_objects["CaffeineService"] = RPC.CaffeineService #extend CaffeineServiceObject for availability over RPC
+        #extend CaffeineServiceObject for availability over RPC
+        self.root_objects["CaffeineService"] = RPC.CaffeineService
         super().__init__(URL=URL)
 
     def handleMessage(self, msg):
         msg = umsgpack.loads(msg)
         if msg["_c"] not in self.root_objects:
-            raise security.SecurityException("Class %s is not available to RPC worker %s, so you cannot send messages to it." % (msg["_c"],self))
+            raise security.SecurityException(
+                "Class %s is not available to RPC worker %s, so you cannot send messages to it." % (msg["_c"], self))
         obj = self.root_objects[msg["_c"]]
         selector = msg["_s"]
         security.selector_is_ok(obj, selector)
         method = getattr(obj, selector)
         kwargs = pack.unpack(msg["_a"])
         result = method(**kwargs)
-        print ("result is",result)
+        print("result is", result)
         dictFormat = pack.pack(result)
-        print ("dict is",dictFormat)
+        print("dict is", dictFormat)
         return umsgpack.dumps(dictFormat)
 
 
@@ -112,7 +114,6 @@ class RPCClient():
         print("client connecting to URL %s" % URL)
         self.socket.bind(URL)
         self.burned_ready = False
-
 
     def __getattr__(self, name):
         class ClassProxy:

@@ -28,12 +28,12 @@ def findUnpackMethod(packet):
     if isinstance(packet, str):
         return lambda x: x
 
-    print (packet,"packet was")
+    print(packet, "packet was")
     klassname = packet["_c"]
     klass = security.string_to_class(klassname)
     if hasattr(klass, "_caffeineUnpack"):
         return klass._caffeineUnpack
-    elif klassname=="dict":
+    elif klassname == "dict":
         return dictUnpack
     else:
         raise ValueError("Don't know how to unpack %s" % klassname)
@@ -56,8 +56,10 @@ def listPack(lyst):
 def dictPack(dikt):
     return {"_c": "dict", "dict": {pack(key): pack(value) for key, value in dikt.items()}}
 
+
 def dictUnpack(dikt):
-    return {unpack(key):unpack(value) for key,value in dikt["dict"].items()}
+    return {unpack(key): unpack(value) for key, value in dikt["dict"].items()}
+
 
 def typePack(tipe):
-    return {"_c":"type","name":tipe.__name__}
+    return {"_c": "type", "name": tipe.__name__}

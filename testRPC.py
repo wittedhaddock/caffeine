@@ -41,6 +41,7 @@ class TestSequence(unittest.TestCase):
     def test_RPCCall(self):
         import worker
         import pack
+
         @RPC.Class
         class Foo:
 
@@ -50,8 +51,8 @@ class TestSequence(unittest.TestCase):
                 return len(string)
 
         RPCWorker = worker.RPCWorker({"Foo": Foo})
-        kwargs = {"string":"test123"}
+        kwargs = {"string": "test123"}
         packed_kwargs = pack.pack(kwargs)
         import umsgpack
-        RPCWorker.handleMessage(umsgpack.dumps({"_c": "Foo", "_s": "stringLength", "_a": packed_kwargs}))
-
+        RPCWorker.handleMessage(
+            umsgpack.dumps({"_c": "Foo", "_s": "stringLength", "_a": packed_kwargs}))
