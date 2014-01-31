@@ -7,7 +7,7 @@ if __name__ == '__main__':
     if "--teamcity" in sys.argv:
         from teamcity.unittestpy import TeamcityTestRunner
         runner = TeamcityTestRunner()
-    elif "--coverage" in sys.argv:
+    elif "--sonar" in sys.argv:
         import xmlrunner
         runner = xmlrunner.XMLTestRunner(output='/xunit-reports/xunit-result-sonar.xml')
     else:
