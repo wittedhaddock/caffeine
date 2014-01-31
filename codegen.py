@@ -66,7 +66,7 @@ class ObjCCodeGen:
 
 def codegen(args):
     import worker
-    client = worker.RPCClient(URL=args.url)
+    client = worker.RPCClient(url=args.url)
     schemas = client.CaffeineService.directory()
     codegen = None
     if args.language == "objc":
