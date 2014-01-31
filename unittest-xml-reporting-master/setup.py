@@ -9,6 +9,9 @@ xmlrunner_version = os.path.join(
     'src', 'xmlrunner', 'version.py'
 )
 print("xmlrunner_version",xmlrunner_version)
+print("file contents",open(xmlrunner_version).read())
+print("compiled version",compile(open(xmlrunner_version).read()))
+
 exec(compile(open(xmlrunner_version).read(), xmlrunner_version, 'exec'))
 
 
