@@ -11,7 +11,7 @@ context = zmq.Context()
 
 
 def zap_handler():
-    # see http://rfc.zeromq.org/spec:27
+    " see http://rfc.zeromq.org/spec:27"
     socket = context.socket(zmq.REP)
     socket.bind("inproc://zeromq.zap.01")
     while True:

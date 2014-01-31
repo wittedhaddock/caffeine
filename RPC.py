@@ -1,3 +1,5 @@
+"""This module does RPC stuff"""
+
 root_level_objects = {}
 
 import pack
@@ -7,6 +9,7 @@ import security
 
 
 def Class(klass):
+    """A decorator used to mark that the class should be available over RPC"""
     root_level_objects[klass.__name__] = klass
     klass._caffeineRPC = {}
     for name, method in klass.__dict__.items():
@@ -20,17 +23,21 @@ def Class(klass):
 
 
 def PublicMethod(method):
+    """A decorator used to mark that the method should be available over RPC"""
     method._caffeineRPC = True
     return method
 
 
 @Class
 class Schema:
+    """A schema contains type information for an arbitrary number of classes.  Most CaffeineService (e.g. a port) has one schema.
+    You can get this schema by asking for CaffeineService.directory()."""
 
     def __init__(self, klass):
         self.klass = klass
 
     def _caffeinePack(self):
+        """Pack the schema"""
         d = {}
         d["_c"] = "Schema"
         d["functions"] = {}
@@ -45,6 +52,7 @@ class Schema:
 
     @classmethod
     def _caffeineUnpack(klas, dykt):
+        """Unpack the schema"""
         klass = security.string_to_class(dykt["_c"])
         newSchema = Schema(klass)
         newSchema.functions = {}
@@ -58,10 +66,12 @@ class Schema:
 
 @Class
 class CaffeineService:
+    """Default object that provides caffeine services to a remote host"""
 
     @PublicMethod
     @classmethod
     def directory(self):
+        """Returns the schema of objects supported by the remote host."""
         schemas = {}
         for name, object in root_level_objects.items():
             schemas[name] = Schema(object)
