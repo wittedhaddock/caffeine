@@ -5,11 +5,12 @@ RUN pip3.3 install u-msgpack-python
 
 
 RUN pip3.3 install coverage
-RUN cd caffeine/unittest-xml-reporting-master && python3 setup.py install
 
 
 #run router
 ADD . caffeine/
+RUN cd caffeine/unittest-xml-reporting-master && python3 setup.py install
+
 EXPOSE 55555 55555
 
 ENTRYPOINT ["coverage","run", "caffeine/tests.py","--sonar"]
