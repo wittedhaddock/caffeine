@@ -9,7 +9,7 @@ if __name__ == '__main__':
         runner = TeamcityTestRunner()
     elif "--sonar" in sys.argv:
         import xmlrunner
-        runner = xmlrunner.XMLTestRunner(output='/xunit-reports/xunit-result-sonar.xml')
+        runner = xmlrunner.XMLTestRunner(output='xunit-reports/')
     else:
         runner = unittest.TextTestRunner()
     testsuite = unittest.TestLoader().discover('.')
