@@ -5,7 +5,7 @@ RUN pip3.3 install u-msgpack-python
 
 
 RUN pip3.3 install coverage
-RUN pip3.3 install unittest-xml-reporting
+RUN cd unittest-xml-reporting-master && python3 setup.py install
 
 
 #run router
