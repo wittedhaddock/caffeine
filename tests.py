@@ -9,7 +9,7 @@ if __name__ == '__main__':
         runner = TeamcityTestRunner()
     elif "--coverage" in sys.argv:
         import xmlrunner
-        runner = xmlrunner.XMLTestRunner(output='/xunit-reports')
+        runner = xmlrunner.XMLTestRunner(output='/xunit-reports/xunit-result-sonar.xml')
     else:
         runner = unittest.TextTestRunner()
     testsuite = unittest.TestLoader().discover('.')
