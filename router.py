@@ -59,8 +59,6 @@ workers = []
 
 while True:
     socks = dict(poller.poll())
-    print(socks)
-    print("those were the socks")
     if (backend_socket in socks and socks[backend_socket] == zmq.POLLIN):
         print("c1")
         message = backend_socket.recv_multipart()
