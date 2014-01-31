@@ -1,3 +1,4 @@
+echo "0"
 coverage run caffeine/tests.py
 echo "1"
 mkdir coverage-reports
