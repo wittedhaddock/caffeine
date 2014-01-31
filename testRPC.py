@@ -54,5 +54,5 @@ class TestSequence(unittest.TestCase):
         kwargs = {"string": "test123"}
         packed_kwargs = pack.pack(kwargs)
         import umsgpack
-        RPCWorker.handleMessage(
+        RPCWorker.handle_message(
             umsgpack.dumps({"_c": "Foo", "_s": "stringLength", "_a": packed_kwargs}))

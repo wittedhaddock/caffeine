@@ -5,7 +5,7 @@ import caffeine.worker
 
 class TestRouterWorker(caffeine.worker.Worker):
 
-    def handleMessage(self, message):
+    def handle_message(self, message):
         print("worker saying hello", message)
         return b'worker says hello'
 

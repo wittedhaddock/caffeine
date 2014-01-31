@@ -9,15 +9,15 @@ import zmq
 import umsgpack
 import security
 
-context = None
+Context = None
 
 
-def getContext():
-    global context
-    if context:
-        return context
-    context = zmq.Context()
-    return context
+def get_context():
+    global Context
+    if Context:
+        return Context
+    Context = zmq.Context()
+    return Context
 
 
 # A base worker class.  Primarily used for plubming.
@@ -31,11 +31,11 @@ class Worker:
         pass
 
     # override this method in subclasses
-    def handleMessage(self, msg):
+    def handle_message(self, msg):
         pass
 
     def runloop(self):
-        context = getContext()
+        context = get_context()
         socket = context.socket(zmq.REQ)
         socket.connect(self.url)
         import time
@@ -60,7 +60,7 @@ class Worker:
                     message = message[0]
                 else:
                     raise ValueError("Unknown message format %s" % message)
-                response = self.handleMessage(message)
+                response = self.handle_message(message)
                 print("response", response)
                 if header:
                     print("worker sending %s" % [header, b'', response])
@@ -89,7 +89,7 @@ class RPCWorker(Worker):
         self.root_objects["CaffeineService"] = RPC.CaffeineService
         super().__init__(URL=URL)
 
-    def handleMessage(self, msg):
+    def handle_message(self, msg):
         msg = umsgpack.loads(msg)
         if msg["_c"] not in self.root_objects:
             raise security.SecurityException(
@@ -108,27 +108,27 @@ class RPCWorker(Worker):
 
 class RPCClient():
 
-    def __init__(self, URL):
-        context = getContext()
+    def __init__(self, url):
+        context = get_context()
         self.socket = context.socket(zmq.REP)
-        print("client connecting to URL %s" % URL)
-        self.socket.bind(URL)
+        print("client connecting to URL %s" % url)
+        self.socket.bind(url)
         self.burned_ready = False
 
     def __getattr__(self, name):
         class ClassProxy:
 
-            def __init__(self, client, className):
+            def __init__(self, client, class_name):
                 self.client = client
-                self.className = className
+                self.class_name = class_name
 
             def __getattr__(self, name):
                 class FunctionProxy:
 
-                    def __init__(self, client, className, methodName):
+                    def __init__(self, client, class_name, method_name):
                         self.client = client
-                        self.className = className
-                        self.methodName = methodName
+                        self.class_name = class_name
+                        self.method_name = method_name
 
                     def __call__(self, *args, **kwargs):
                         if not self.client.burned_ready:
@@ -136,13 +136,13 @@ class RPCClient():
                             self.client.socket.recv_multipart()
 
                         packedObj = {
-                            "_c": self.className, "_s": self.methodName, "_a": pack.pack(kwargs)}
+                            "_c": self.class_name, "_s": self.method_name, "_a": pack.pack(kwargs)}
                         packedBytes = umsgpack.dumps(packedObj)
 
                         result = self.client.socket.send(packedBytes)
                         result = self.client.socket.recv_multipart()[0]
                         return pack.unpack(umsgpack.loads(result))
-                return FunctionProxy(object.__getattribute__(self, "client"), object.__getattribute__(self, "className"), name)
+                return FunctionProxy(object.__getattribute__(self, "client"), object.__getattribute__(self, "class_name"), name)
 
         return ClassProxy(self, name)
 
