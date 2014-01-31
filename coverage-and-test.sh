@@ -1,5 +1,7 @@
 echo "0"
-coverage run caffeine/tests.py --sonar
+cd caffeine && coverage run tests.py --sonar
+cd ..
+mv caffeine/xunit-reports .
 echo "1"
 mkdir coverage-reports
 echo "2"
