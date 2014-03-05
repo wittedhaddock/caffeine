@@ -9,7 +9,7 @@ import security
 
 def findPackMethod(obj):
     """Return a pack method suitable to pack the given object"""
-    if hasattr(obj, "_caffeinePack"):
+    if hasattr(obj.__class__, "_caffeinePack"):
         return obj.__class__._caffeinePack
     elif isinstance(obj, type):
         return typePack

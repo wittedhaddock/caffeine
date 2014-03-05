@@ -45,7 +45,6 @@ class Worker:
         poller = zmq.Poller()
         poller.register(socket, zmq.POLLIN)
         while not self.should_stop:
-            print("got here")
             socks = dict(poller.poll(timeout=500))
             if socket in socks and socks[socket] == zmq.POLLIN:
                 message = socket.recv_multipart()
@@ -85,7 +84,7 @@ class RPCWorker(Worker):
     def __init__(self, root_objects, URL=caffeine.internal_url):
         self.root_objects = root_objects
         import RPC
-        #extend CaffeineServiceObject for availability over RPC
+        # extend CaffeineServiceObject for availability over RPC
         self.root_objects["CaffeineService"] = RPC.CaffeineService
         super().__init__(URL=URL)
 
@@ -110,10 +109,30 @@ class RPCClient():
 
     def __init__(self, url):
         context = get_context()
-        self.socket = context.socket(zmq.REP)
+        import keytools
+        (zeromq_url, z85_public, z85_private,
+         z85_server) = keytools.parseURL(url)
+        
+        if z85_server:
+            #In this case, we enable encryption and assume we're talking to a ROUTER
+            self.socket = context.socket(zmq.REQ)
+            client_public, client_secret = zmq.curve_keypair()
+            self.socket.curve_publickey = z85_public
+            self.socket.curve_secretkey = z85_private
+            self.socket.curve_serverkey = z85_server
+            self.burned_ready = True #not required for router
+            self.router_style_messages = True
+            self.socket.connect(zeromq_url)
+
+        else:
+            #In this case, we handle direct mode
+            self.burned_ready = False
+            self.socket = context.socket(zmq.REP)
+            self.router_style_messages = False
+            self.socket.bind(zeromq_url)
+
+        print (zeromq_url,z85_public,z85_private,z85_server)
         print("client connecting to URL %s" % url)
-        self.socket.bind(url)
-        self.burned_ready = False
 
     def __getattr__(self, name):
         class ClassProxy:
@@ -140,7 +159,12 @@ class RPCClient():
                         packedBytes = umsgpack.dumps(packedObj)
 
                         result = self.client.socket.send(packedBytes)
-                        result = self.client.socket.recv_multipart()[0]
+
+                        result = self.client.socket.recv_multipart()
+                        if self.client.router_style_messages:
+                            result = result[1]
+                        else:
+                            result = result[0]
                         return pack.unpack(umsgpack.loads(result))
                 return FunctionProxy(object.__getattribute__(self, "client"), object.__getattribute__(self, "class_name"), name)
 

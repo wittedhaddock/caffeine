@@ -30,7 +30,7 @@ def PublicMethod(method):
 
 @Class
 class Schema:
-    """A schema contains type information for an arbitrary number of classes.  Most CaffeineService (e.g. a port) has one schema.
+    """A schema contains type information for one class.
     You can get this schema by asking for CaffeineService.directory()."""
 
     def __init__(self, klass):
@@ -45,7 +45,7 @@ class Schema:
             if hasattr(method, "_caffeineRPC"):
                 annotations = dict(method.__func__.__annotations__)
                 if "return" not in annotations:
-                    annotations["return"] = None
+                    raise Exception("Return type is not specified for function %s.  Please specify a returntype for this method in a function annotation." % name)
 
                 d["functions"][name] = pack.pack(annotations)
         return d
@@ -67,10 +67,9 @@ class Schema:
 @Class
 class CaffeineService:
     """Default object that provides caffeine services to a remote host"""
-
     @PublicMethod
     @classmethod
-    def directory(self):
+    def directory(self) -> Schema:
         """Returns the schema of objects supported by the remote host."""
         schemas = {}
         for name, object in root_level_objects.items():

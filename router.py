@@ -29,7 +29,6 @@ def zap_handler():
 
 
 frontend_socket = context.socket(zmq.ROUTER)
-(public, private) = zmq.curve_keypair()
 frontend_socket.curve_serverkey = caffeine.well_known_public_key
 frontend_socket.curve_secretkey = caffeine.well_known_private_key
 frontend_socket.curve_server = True
@@ -40,7 +39,8 @@ backend_socket.bind(caffeine.internal_url)
 print("Router serving to workers on URI ", caffeine.internal_url)
 
 
-print("Router fielding requests on port", caffeine.client_port)
+print("Router available at tcp://localhost:%d", caffeine.client_port)
+print("Router is currently accepting connections from any valid public/private key.")
 
 # http://zguide.zeromq.org/py:lbbroker2
 
@@ -78,6 +78,7 @@ while True:
         print("c2")
         if (frontend_socket in socks and socks[frontend_socket] == zmq.POLLIN):
             message = frontend_socket.recv_multipart()
+            print ("Received message",message)
             client_addr = message[0]
             empty = message[1]
             assert empty == b""
