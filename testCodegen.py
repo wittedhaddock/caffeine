@@ -29,6 +29,8 @@ class TestSequence(unittest.TestCase):
         args = NotArgs()
         args.language = "objc"
         args.url = "inproc://test_objc"
+        import tempfile
+        args.output = tempfile.mkdtemp()
         codegen.codegen(args)
         RPCWorker.stop()
 
@@ -41,7 +43,7 @@ class TestSequence(unittest.TestCase):
 
             @RPC.PublicMethod
             @classmethod
-            def hello_world(self):
+            def hello_world(self) -> str:
                 return "hello world"
 
         # spin up a worker that contains this class
@@ -65,7 +67,7 @@ class TestSequence(unittest.TestCase):
 
         with open(args.output + "/Foo.h") as implementation:
             implementation = implementation.read()
-            self.assertTrue(implementation.contains("+ (NSString*)helloWorldWithError:(NSError**)error"))
+            self.assertTrue("+ (NSString*)helloWorldWithError:(NSError**)error" in implementation)
 
         #let's see if the generated code compiles
         #At this precise moment we can't introduce a dependency on CaffeineClient.h
