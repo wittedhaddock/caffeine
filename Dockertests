@@ -2,11 +2,11 @@ FROM drewcrawford/caffeinebase
 MAINTAINER drew
 
 RUN pip3.3 install u-msgpack-python
-
+RUN pip3.3 install coverage
 
 #run router
 ADD . caffeine/
 EXPOSE 55555 55555
 
-ENTRYPOINT ["/usr/bin/time","-v", "python3",caffeine/tests.py"]
+ENTRYPOINT ["coverage-3.3","run","-a","--branch","caffeine/tests.py"]
 
