@@ -14,7 +14,7 @@ if __name__ == '__main__':
         print (sys.path)
 
         import xmlrunner
-        runner = xmlrunner.XMLTestRunner(output='xunit-reports/')
+        runner = xmlrunner.XMLTestRunner(output='/sonar-reports/')
     elif "test_loopback" in sys.argv:
         print ("Running loopback")
         from testMultiplatform import TestSequence

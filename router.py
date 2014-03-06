@@ -32,7 +32,7 @@ frontend_socket = context.socket(zmq.ROUTER)
 frontend_socket.curve_serverkey = caffeine.well_known_public_key
 frontend_socket.curve_secretkey = caffeine.well_known_private_key
 frontend_socket.curve_server = True
-frontend_socket.bind("tcp://127.0.0.1:%d" % caffeine.client_port)
+frontend_socket.bind("tcp://0.0.0.0:%d" % caffeine.client_port)
 
 backend_socket = context.socket(zmq.ROUTER)
 backend_socket.bind(caffeine.internal_url)
