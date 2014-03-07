@@ -1,5 +1,6 @@
 #!python3
 import caffeine.RPC
+import caffeine.worker
 import unittest
 import sys
 
@@ -20,9 +21,7 @@ class TestSequence(unittest.TestCase):
                 return "hello world"
         import subprocess
         import os
-        import caffeine
         self.router = subprocess.Popen(
             ["python3", os.path.join(caffeine.__path__[0], "../caffeine_router")], stdin=None, stdout=None, stderr=None)
-        from worker import RPCWorker
-        w = RPCWorker(root_objects={"Foo": Foo})
+        w = caffeine.worker.RPCWorker(root_objects={"Foo": Foo})
         w.runloop()
