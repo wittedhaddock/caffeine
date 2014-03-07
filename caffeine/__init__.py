@@ -1,7 +1,7 @@
 #©2013 Drew Crawford Apps.  All Rights Reserved.
 #See LICENSE file for details.
 
-__version__="0.2.0"
+__version__="0.2.0-dev"
 
 #This is the port that clients use to connect to the caffeine router
 client_port = 55555
