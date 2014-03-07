@@ -1,9 +1,9 @@
 """This module does RPC stuff"""
 
 root_level_objects = {}
-
-import pack
-import security
+import sys
+import caffeine.pack
+import caffeine.security
 
 # This sweeps marked functions for RPC access.
 
@@ -47,17 +47,17 @@ class Schema:
                 if "return" not in annotations:
                     raise Exception("Return type is not specified for function %s.  Please specify a returntype for this method in a function annotation." % name)
 
-                d["functions"][name] = pack.pack(annotations)
+                d["functions"][name] = caffeine.pack.pack(annotations)
         return d
 
     @classmethod
     def _caffeineUnpack(klas, dykt):
         """Unpack the schema"""
-        klass = security.string_to_class(dykt["_c"])
+        klass = caffeine.security.string_to_class(dykt["_c"])
         newSchema = Schema(klass)
         newSchema.functions = {}
         for name,methodpack in dykt["functions"].items():
-            newSchema.functions[name] = pack.unpack(methodpack)
+            newSchema.functions[name] = caffeine.pack.unpack(methodpack)
         return newSchema
 
     def __repr__(self):

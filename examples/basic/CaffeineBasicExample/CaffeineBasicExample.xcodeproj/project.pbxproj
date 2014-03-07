@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3ADA0FC618C9AA4100AC1DB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA0FC518C9AA4100AC1DB9 /* Foundation.framework */; };
+		3ADA0FC818C9AA4100AC1DB9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA0FC718C9AA4100AC1DB9 /* CoreGraphics.framework */; };
+		3ADA0FCA18C9AA4100AC1DB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA0FC918C9AA4100AC1DB9 /* UIKit.framework */; };
+		3ADA0FD018C9AA4100AC1DB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA0FCE18C9AA4100AC1DB9 /* InfoPlist.strings */; };
+		3ADA0FD218C9AA4100AC1DB9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA0FD118C9AA4100AC1DB9 /* main.m */; };
+		3ADA0FD618C9AA4100AC1DB9 /* DCAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA0FD518C9AA4100AC1DB9 /* DCAAppDelegate.m */; };
+		3ADA0FD918C9AA4100AC1DB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA0FD718C9AA4100AC1DB9 /* Main.storyboard */; };
+		3ADA0FDC18C9AA4100AC1DB9 /* DCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA0FDB18C9AA4100AC1DB9 /* DCAViewController.m */; };
+		3ADA0FDE18C9AA4100AC1DB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA0FDD18C9AA4100AC1DB9 /* Images.xcassets */; };
+		3ADA0FE518C9AA4100AC1DB9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA0FE418C9AA4100AC1DB9 /* XCTest.framework */; };
+		3ADA0FE618C9AA4100AC1DB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA0FC518C9AA4100AC1DB9 /* Foundation.framework */; };
+		3ADA0FE718C9AA4100AC1DB9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA0FC918C9AA4100AC1DB9 /* UIKit.framework */; };
+		3ADA0FEF18C9AA4100AC1DB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA0FED18C9AA4100AC1DB9 /* InfoPlist.strings */; };
+		3ADA0FF118C9AA4100AC1DB9 /* CaffeineBasicExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA0FF018C9AA4100AC1DB9 /* CaffeineBasicExampleTests.m */; };
+		3ADA100618C9B6B900AC1DB9 /* Foo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA100518C9B6B900AC1DB9 /* Foo.m */; };
+		3ADA100918C9B7CD00AC1DB9 /* libcaffeine-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA100018C9AB6100AC1DB9 /* libcaffeine-ios.a */; };
+		3ADA101718C9BC2A00AC1DB9 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ADA101618C9BC2A00AC1DB9 /* libstdc++.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3ADA0FE818C9AA4100AC1DB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA0FBA18C9AA4100AC1DB9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ADA0FC118C9AA4100AC1DB9;
+			remoteInfo = CaffeineBasicExample;
+		};
+		3ADA0FFF18C9AB6100AC1DB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA0FFA18C9AB6000AC1DB9 /* caffeine-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AF0F3381890DEAF00B6491F;
+			remoteInfo = "caffeine-ios";
+		};
+		3ADA100118C9AB6100AC1DB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA0FFA18C9AB6000AC1DB9 /* caffeine-ios.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3AF0F3481890DEAF00B6491F;
+			remoteInfo = "caffeine-iosTests";
+		};
+		3ADA100E18C9B80B00AC1DB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADA0FFA18C9AB6000AC1DB9 /* caffeine-ios.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AF0F3371890DEAF00B6491F;
+			remoteInfo = "caffeine-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3ADA0FC218C9AA4100AC1DB9 /* CaffeineBasicExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaffeineBasicExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADA0FC518C9AA4100AC1DB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3ADA0FC718C9AA4100AC1DB9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3ADA0FC918C9AA4100AC1DB9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3ADA0FCD18C9AA4100AC1DB9 /* CaffeineBasicExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CaffeineBasicExample-Info.plist"; sourceTree = "<group>"; };
+		3ADA0FCF18C9AA4100AC1DB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3ADA0FD118C9AA4100AC1DB9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3ADA0FD318C9AA4100AC1DB9 /* CaffeineBasicExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CaffeineBasicExample-Prefix.pch"; sourceTree = "<group>"; };
+		3ADA0FD418C9AA4100AC1DB9 /* DCAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAAppDelegate.h; sourceTree = "<group>"; };
+		3ADA0FD518C9AA4100AC1DB9 /* DCAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAAppDelegate.m; sourceTree = "<group>"; };
+		3ADA0FD818C9AA4100AC1DB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3ADA0FDA18C9AA4100AC1DB9 /* DCAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCAViewController.h; sourceTree = "<group>"; };
+		3ADA0FDB18C9AA4100AC1DB9 /* DCAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCAViewController.m; sourceTree = "<group>"; };
+		3ADA0FDD18C9AA4100AC1DB9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3ADA0FE318C9AA4100AC1DB9 /* CaffeineBasicExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaffeineBasicExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADA0FE418C9AA4100AC1DB9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3ADA0FEC18C9AA4100AC1DB9 /* CaffeineBasicExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CaffeineBasicExampleTests-Info.plist"; sourceTree = "<group>"; };
+		3ADA0FEE18C9AA4100AC1DB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3ADA0FF018C9AA4100AC1DB9 /* CaffeineBasicExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CaffeineBasicExampleTests.m; sourceTree = "<group>"; };
+		3ADA0FFA18C9AB6000AC1DB9 /* caffeine-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "caffeine-ios.xcodeproj"; path = "../../../../../caffeine-ios/caffeine-ios.xcodeproj"; sourceTree = "<group>"; };
+		3ADA100418C9B6B900AC1DB9 /* Foo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foo.h; sourceTree = "<group>"; };
+		3ADA100518C9B6B900AC1DB9 /* Foo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Foo.m; sourceTree = "<group>"; };
+		3ADA101618C9BC2A00AC1DB9 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3ADA0FBF18C9AA4100AC1DB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADA101718C9BC2A00AC1DB9 /* libstdc++.dylib in Frameworks */,
+				3ADA100918C9B7CD00AC1DB9 /* libcaffeine-ios.a in Frameworks */,
+				3ADA0FC818C9AA4100AC1DB9 /* CoreGraphics.framework in Frameworks */,
+				3ADA0FCA18C9AA4100AC1DB9 /* UIKit.framework in Frameworks */,
+				3ADA0FC618C9AA4100AC1DB9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ADA0FE018C9AA4100AC1DB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADA0FE518C9AA4100AC1DB9 /* XCTest.framework in Frameworks */,
+				3ADA0FE718C9AA4100AC1DB9 /* UIKit.framework in Frameworks */,
+				3ADA0FE618C9AA4100AC1DB9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3ADA0FB918C9AA4100AC1DB9 = {
+			isa = PBXGroup;
+			children = (
+				3ADA0FFA18C9AB6000AC1DB9 /* caffeine-ios.xcodeproj */,
+				3ADA0FCB18C9AA4100AC1DB9 /* CaffeineBasicExample */,
+				3ADA0FEA18C9AA4100AC1DB9 /* CaffeineBasicExampleTests */,
+				3ADA0FC418C9AA4100AC1DB9 /* Frameworks */,
+				3ADA0FC318C9AA4100AC1DB9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3ADA0FC318C9AA4100AC1DB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA0FC218C9AA4100AC1DB9 /* CaffeineBasicExample.app */,
+				3ADA0FE318C9AA4100AC1DB9 /* CaffeineBasicExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ADA0FC418C9AA4100AC1DB9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA101618C9BC2A00AC1DB9 /* libstdc++.dylib */,
+				3ADA0FC518C9AA4100AC1DB9 /* Foundation.framework */,
+				3ADA0FC718C9AA4100AC1DB9 /* CoreGraphics.framework */,
+				3ADA0FC918C9AA4100AC1DB9 /* UIKit.framework */,
+				3ADA0FE418C9AA4100AC1DB9 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3ADA0FCB18C9AA4100AC1DB9 /* CaffeineBasicExample */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA0FD418C9AA4100AC1DB9 /* DCAAppDelegate.h */,
+				3ADA0FD518C9AA4100AC1DB9 /* DCAAppDelegate.m */,
+				3ADA0FD718C9AA4100AC1DB9 /* Main.storyboard */,
+				3ADA0FDA18C9AA4100AC1DB9 /* DCAViewController.h */,
+				3ADA0FDB18C9AA4100AC1DB9 /* DCAViewController.m */,
+				3ADA100418C9B6B900AC1DB9 /* Foo.h */,
+				3ADA100518C9B6B900AC1DB9 /* Foo.m */,
+				3ADA0FDD18C9AA4100AC1DB9 /* Images.xcassets */,
+				3ADA0FCC18C9AA4100AC1DB9 /* Supporting Files */,
+			);
+			path = CaffeineBasicExample;
+			sourceTree = "<group>";
+		};
+		3ADA0FCC18C9AA4100AC1DB9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA0FCD18C9AA4100AC1DB9 /* CaffeineBasicExample-Info.plist */,
+				3ADA0FCE18C9AA4100AC1DB9 /* InfoPlist.strings */,
+				3ADA0FD118C9AA4100AC1DB9 /* main.m */,
+				3ADA0FD318C9AA4100AC1DB9 /* CaffeineBasicExample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3ADA0FEA18C9AA4100AC1DB9 /* CaffeineBasicExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA0FF018C9AA4100AC1DB9 /* CaffeineBasicExampleTests.m */,
+				3ADA0FEB18C9AA4100AC1DB9 /* Supporting Files */,
+			);
+			path = CaffeineBasicExampleTests;
+			sourceTree = "<group>";
+		};
+		3ADA0FEB18C9AA4100AC1DB9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA0FEC18C9AA4100AC1DB9 /* CaffeineBasicExampleTests-Info.plist */,
+				3ADA0FED18C9AA4100AC1DB9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3ADA0FFB18C9AB6000AC1DB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA100018C9AB6100AC1DB9 /* libcaffeine-ios.a */,
+				3ADA100218C9AB6100AC1DB9 /* caffeine-iosTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3ADA0FC118C9AA4100AC1DB9 /* CaffeineBasicExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ADA0FF418C9AA4100AC1DB9 /* Build configuration list for PBXNativeTarget "CaffeineBasicExample" */;
+			buildPhases = (
+				3ADA0FBE18C9AA4100AC1DB9 /* Sources */,
+				3ADA0FBF18C9AA4100AC1DB9 /* Frameworks */,
+				3ADA0FC018C9AA4100AC1DB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ADA100F18C9B80B00AC1DB9 /* PBXTargetDependency */,
+			);
+			name = CaffeineBasicExample;
+			productName = CaffeineBasicExample;
+			productReference = 3ADA0FC218C9AA4100AC1DB9 /* CaffeineBasicExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3ADA0FE218C9AA4100AC1DB9 /* CaffeineBasicExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ADA0FF718C9AA4100AC1DB9 /* Build configuration list for PBXNativeTarget "CaffeineBasicExampleTests" */;
+			buildPhases = (
+				3ADA0FDF18C9AA4100AC1DB9 /* Sources */,
+				3ADA0FE018C9AA4100AC1DB9 /* Frameworks */,
+				3ADA0FE118C9AA4100AC1DB9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ADA0FE918C9AA4100AC1DB9 /* PBXTargetDependency */,
+			);
+			name = CaffeineBasicExampleTests;
+			productName = CaffeineBasicExampleTests;
+			productReference = 3ADA0FE318C9AA4100AC1DB9 /* CaffeineBasicExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3ADA0FBA18C9AA4100AC1DB9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DCA;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = DrewCrawfordApps;
+				TargetAttributes = {
+					3ADA0FE218C9AA4100AC1DB9 = {
+						TestTargetID = 3ADA0FC118C9AA4100AC1DB9;
+					};
+				};
+			};
+			buildConfigurationList = 3ADA0FBD18C9AA4100AC1DB9 /* Build configuration list for PBXProject "CaffeineBasicExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3ADA0FB918C9AA4100AC1DB9;
+			productRefGroup = 3ADA0FC318C9AA4100AC1DB9 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3ADA0FFB18C9AB6000AC1DB9 /* Products */;
+					ProjectRef = 3ADA0FFA18C9AB6000AC1DB9 /* caffeine-ios.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				3ADA0FC118C9AA4100AC1DB9 /* CaffeineBasicExample */,
+				3ADA0FE218C9AA4100AC1DB9 /* CaffeineBasicExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3ADA100018C9AB6100AC1DB9 /* libcaffeine-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcaffeine-ios.a";
+			remoteRef = 3ADA0FFF18C9AB6100AC1DB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3ADA100218C9AB6100AC1DB9 /* caffeine-iosTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "caffeine-iosTests.xctest";
+			remoteRef = 3ADA100118C9AB6100AC1DB9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3ADA0FC018C9AA4100AC1DB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADA0FDE18C9AA4100AC1DB9 /* Images.xcassets in Resources */,
+				3ADA0FD018C9AA4100AC1DB9 /* InfoPlist.strings in Resources */,
+				3ADA0FD918C9AA4100AC1DB9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ADA0FE118C9AA4100AC1DB9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADA0FEF18C9AA4100AC1DB9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3ADA0FBE18C9AA4100AC1DB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADA100618C9B6B900AC1DB9 /* Foo.m in Sources */,
+				3ADA0FD218C9AA4100AC1DB9 /* main.m in Sources */,
+				3ADA0FDC18C9AA4100AC1DB9 /* DCAViewController.m in Sources */,
+				3ADA0FD618C9AA4100AC1DB9 /* DCAAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ADA0FDF18C9AA4100AC1DB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADA0FF118C9AA4100AC1DB9 /* CaffeineBasicExampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3ADA0FE918C9AA4100AC1DB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ADA0FC118C9AA4100AC1DB9 /* CaffeineBasicExample */;
+			targetProxy = 3ADA0FE818C9AA4100AC1DB9 /* PBXContainerItemProxy */;
+		};
+		3ADA100F18C9B80B00AC1DB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "caffeine-ios";
+			targetProxy = 3ADA100E18C9B80B00AC1DB9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3ADA0FCE18C9AA4100AC1DB9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ADA0FCF18C9AA4100AC1DB9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3ADA0FD718C9AA4100AC1DB9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ADA0FD818C9AA4100AC1DB9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3ADA0FED18C9AA4100AC1DB9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ADA0FEE18C9AA4100AC1DB9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3ADA0FF218C9AA4100AC1DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3ADA0FF318C9AA4100AC1DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3ADA0FF518C9AA4100AC1DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CaffeineBasicExample/CaffeineBasicExample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$CONFIGURATION_BUILD_DIR/include,
+				);
+				INFOPLIST_FILE = "CaffeineBasicExample/CaffeineBasicExample-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3ADA0FF618C9AA4100AC1DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CaffeineBasicExample/CaffeineBasicExample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					$CONFIGURATION_BUILD_DIR/include,
+				);
+				INFOPLIST_FILE = "CaffeineBasicExample/CaffeineBasicExample-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3ADA0FF818C9AA4100AC1DB9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CaffeineBasicExample.app/CaffeineBasicExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CaffeineBasicExample/CaffeineBasicExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CaffeineBasicExampleTests/CaffeineBasicExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3ADA0FF918C9AA4100AC1DB9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CaffeineBasicExample.app/CaffeineBasicExample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CaffeineBasicExample/CaffeineBasicExample-Prefix.pch";
+				INFOPLIST_FILE = "CaffeineBasicExampleTests/CaffeineBasicExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3ADA0FBD18C9AA4100AC1DB9 /* Build configuration list for PBXProject "CaffeineBasicExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ADA0FF218C9AA4100AC1DB9 /* Debug */,
+				3ADA0FF318C9AA4100AC1DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ADA0FF418C9AA4100AC1DB9 /* Build configuration list for PBXNativeTarget "CaffeineBasicExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ADA0FF518C9AA4100AC1DB9 /* Debug */,
+				3ADA0FF618C9AA4100AC1DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3ADA0FF718C9AA4100AC1DB9 /* Build configuration list for PBXNativeTarget "CaffeineBasicExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ADA0FF818C9AA4100AC1DB9 /* Debug */,
+				3ADA0FF918C9AA4100AC1DB9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3ADA0FBA18C9AA4100AC1DB9 /* Project object */;
+}

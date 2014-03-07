@@ -33,5 +33,6 @@ setup(
     version=caffeine.__version__,
     packages=find_packages(),
     install_requires=['u-msgpack-python>=1.6'],
+    scripts = ['caffeine_router','caffeine_codegen'],
 
 )

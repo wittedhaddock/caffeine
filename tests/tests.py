@@ -2,7 +2,10 @@
 
 import unittest
 import os
-os.system("touch /sonar-reports/checkme")
+import sys
+import os.path
+sys.path.append(os.path.abspath("caffeine"))
+
 if __name__ == '__main__':
     import sys
     print (sys.argv)
@@ -22,5 +25,7 @@ if __name__ == '__main__':
     else:
         print ("Nothing interesting in sys.argv.  Running standard tests.")
         runner = unittest.TextTestRunner()
-    testsuite = unittest.TestLoader().discover('.')
+    #import pdb
+    #pdb.set_trace()
+    testsuite = unittest.TestLoader().discover('tests')
     runner.run(testsuite)

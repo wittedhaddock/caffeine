@@ -1,5 +1,5 @@
-
-import RPC
+import sys
+import caffeine.RPC
 
 
 class SecurityException(Exception):
@@ -13,7 +13,9 @@ def selector_is_ok(obj, selector):
     pass
 
 
-def string_to_class(classname, root_level_objects=RPC.root_level_objects):
+def string_to_class(classname, root_level_objects=None):
+    if root_level_objects is None:
+        root_level_objects = caffeine.RPC.root_level_objects
     """Looks up the class via a safe method.  If the class isn't okay, raises an exception."""
     real_directory = dict(root_level_objects, **{
                           "dict": dict, "type": type, "str": str, "int": int})

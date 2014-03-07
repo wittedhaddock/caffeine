@@ -2,12 +2,11 @@
 #©2013 Drew Crawford Apps.  All Rights Reserved.
 # See LICENSE file for details.
 
-import pack
-import import_caffeine
+from . import pack
 import caffeine
 import zmq
 import umsgpack
-import security
+import caffeine.security as security
 
 Context = None
 
@@ -83,7 +82,7 @@ class RPCWorker(Worker):
 
     def __init__(self, root_objects, URL=caffeine.internal_url):
         self.root_objects = root_objects
-        import RPC
+        import caffeine.RPC as RPC
         # extend CaffeineServiceObject for availability over RPC
         self.root_objects["CaffeineService"] = RPC.CaffeineService
         super().__init__(URL=URL)
@@ -109,9 +108,9 @@ class RPCClient():
 
     def __init__(self, url):
         context = get_context()
-        import keytools
+        import caffeine.keytools
         (zeromq_url, z85_public, z85_private,
-         z85_server) = keytools.parseURL(url)
+         z85_server) = caffeine.keytools.parseURL(url)
         
         if z85_server:
             #In this case, we enable encryption and assume we're talking to a ROUTER

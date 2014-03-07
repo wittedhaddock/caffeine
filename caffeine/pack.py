@@ -4,7 +4,7 @@
 
 # This is somewhat clumsy because we cannot install methods on default types
 
-import security
+import caffeine.security
 
 
 def findPackMethod(obj):
@@ -38,7 +38,7 @@ def findUnpackMethod(packet):
     klassname = packet["_c"]
     if klassname == "NoneType":
         return lambda x: None
-    klass = security.string_to_class(klassname)
+    klass = caffeine.security.string_to_class(klassname)
     if hasattr(klass, "_caffeineUnpack"):
         return klass._caffeineUnpack
     elif klassname == "dict":
@@ -83,4 +83,4 @@ def typePack(tipe):
 
 def typeUnpack(tipe):
     """Unpack method for types"""
-    return security.string_to_class(tipe["name"])
+    return caffeine.security.string_to_class(tipe["name"])

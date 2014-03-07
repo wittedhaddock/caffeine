@@ -1,0 +1,5 @@
+#!python3
+import caffeine.codegen
+
+if __name__=="__main__":
+	caffeine.codegen.main()
