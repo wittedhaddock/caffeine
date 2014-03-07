@@ -23,7 +23,7 @@ while ! nc -z 127.0.0.1 55556
 do
 	sleep 1; 
 	echo "Waiting for local port to open"
-	docker logs $( docker ps -a -q)
+	docker logs $( docker ps -a -q | head -n 1)
 done
 killall ngrok || true
 ngrok -log=stdout -proto=tcp 55556 > ngrok.log &
