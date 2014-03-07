@@ -6,3 +6,4 @@
 
    caffeine
    setup
+   tests

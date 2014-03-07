@@ -6,6 +6,8 @@
 Welcome to the caffeine documentation!
 =======================================
 
+.. image:: caffeinelogo.png
+
 caffeine is a backend-in-a-box that is designed for the applications of tomorrow.  Caffeine covers a lot of ground, but you can think of it as an alternative to BaaS_ offerings like like Parse_, StackMob_, Firebase_, and `iCloud Core Data`_, to web service schemes like XMLRPC_, Thrift_, and REST_, and to networking libraries like AFNetworking_.  If you're interested in how caffeine is the same or different from these other services, read :doc:`what_caffeine_is_for`.
 
 .. _BaaS: http://en.wikipedia.org/wiki/Backend_as_a_service
@@ -37,7 +39,7 @@ Contents:
    urls
    security
    wireformat
-   
+
 
 
 
