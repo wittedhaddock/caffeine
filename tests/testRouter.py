@@ -17,7 +17,7 @@ class TestSequence(unittest.TestCase):
             ["python3", os.path.join(caffeine.__path__[0], "../caffeine_router")], stdin=None, stdout=None, stderr=None)
 
         self.worker = subprocess.Popen(
-            ["python3", os.path.join("tests", "testRouterWorkerProcess.py")], stdin=None, stdout=None, stderr=None)
+            ["python3", os.path.join("caffeine/tests", "testRouterWorkerProcess.py")], stdin=None, stdout=None, stderr=None)
 
     def test_roundtrip(self):
         import zmq

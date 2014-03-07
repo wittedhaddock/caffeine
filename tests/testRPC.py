@@ -1,4 +1,4 @@
-import RPC
+import caffeine.RPC
 import unittest
 
 
@@ -8,23 +8,23 @@ class TestSequence(unittest.TestCase):
         pass
 
     def test_decorate(self):
-        @RPC.Class
+        @caffeine.RPC.Class
         class Foo:
 
-            @RPC.PublicMethod
+            @caffeine.RPC.PublicMethod
             @classmethod
             def helloWorld(self):
                 return "hello world"
         self.assertEquals(Foo.helloWorld(), "hello world")
         self.assertEquals(
             Foo._caffeineRPC["helloWorld"].__func__, Foo.helloWorld.__func__)
-        self.assertEquals(RPC.root_level_objects["Foo"], Foo)
+        self.assertEquals(caffeine.RPC.root_level_objects["Foo"], Foo)
 
     def test_schema(self):
-        @RPC.Class
+        @caffeine.RPC.Class
         class Foo:
 
-            @RPC.PublicMethod
+            @caffeine.RPC.PublicMethod
             @classmethod
             def stringLength(self, string: str) -> int:
                 return len(string)
@@ -33,26 +33,26 @@ class TestSequence(unittest.TestCase):
         kwargs = {"string": "Test1"}
         print("length is ", Foo.stringLength(*args, **kwargs))
 
-        print(RPC.Schema(Foo)._caffeinePack())
-        directory = RPC.CaffeineService.directory()
+        print(caffeine.RPC.Schema(Foo)._caffeinePack())
+        directory = caffeine.RPC.CaffeineService.directory()
         fooPackedSchema = directory["Foo"]._caffeinePack()
         self.assertTrue(fooPackedSchema["functions"])
 
     def test_RPCCall(self):
-        import worker
-        import pack
+        import caffeine.worker
+        import caffeine.pack
 
-        @RPC.Class
+        @caffeine.RPC.Class
         class Foo:
 
-            @RPC.PublicMethod
+            @caffeine.RPC.PublicMethod
             @classmethod
             def stringLength(self, string: str) -> int:
                 return len(string)
 
-        RPCWorker = worker.RPCWorker({"Foo": Foo})
+        RPCWorker = caffeine.worker.RPCWorker({"Foo": Foo})
         kwargs = {"string": "test123"}
-        packed_kwargs = pack.pack(kwargs)
+        packed_kwargs = caffeine.pack.pack(kwargs)
         import umsgpack
         RPCWorker.handle_message(
             umsgpack.dumps({"_c": "Foo", "_s": "stringLength", "_a": packed_kwargs}))

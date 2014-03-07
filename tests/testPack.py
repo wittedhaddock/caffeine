@@ -7,11 +7,11 @@ class TestSequence(unittest.TestCase):
         pass
 
     def test_listPack(self):
-        import pack
+        import caffeine.pack
         lyst = [5, 4, 3]
-        pack.pack(lyst)
+        caffeine.pack.pack(lyst)
 
     def test_dictPack(self):
-        import pack
+        import caffeine.pack
         dikt = {"base": "ball"}
-        pack.pack(dikt)
+        caffeine.pack.pack(dikt)
