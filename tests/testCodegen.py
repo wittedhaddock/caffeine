@@ -1,8 +1,8 @@
 #!python3
-import RPC
+import caffeine.RPC
 import unittest
-import codegen
-import worker
+import caffeine.codegen
+import caffeine.worker
 
 
 class TestSequence(unittest.TestCase):
@@ -12,16 +12,16 @@ class TestSequence(unittest.TestCase):
 
     def test_objc(self):
 
-        @RPC.Class
+        @caffeine.RPC.Class
         class Foo:
 
-            @RPC.PublicMethod
+            @caffeine.RPC.PublicMethod
             @classmethod
             def stringLength(self, string: str) -> int:
                 return len(string)
 
         # spin up a worker that contains this class
-        RPCWorker = worker.RPCWorker({"Foo": Foo}, URL="inproc://test_objc")
+        RPCWorker = caffeine.worker.RPCWorker({"Foo": Foo}, URL="inproc://test_objc")
         RPCWorker.start()
 
         class NotArgs:
@@ -31,23 +31,23 @@ class TestSequence(unittest.TestCase):
         args.url = "inproc://test_objc"
         import tempfile
         args.output = tempfile.mkdtemp()
-        codegen.codegen(args)
+        caffeine.codegen.codegen(args)
         RPCWorker.stop()
 
     def testUnderscoreCaseToCamelCase(self):
-        self.assertEqual(codegen.ObjCCodeGen(schemas=[],args=[]).underscore_case_to_camel_case("hello_world"),"helloWorld")
+        self.assertEqual(caffeine.codegen.ObjCCodeGen(schemas=[],args=[]).underscore_case_to_camel_case("hello_world"),"helloWorld")
 
     def testMultiplatformEmit(self):
-        @RPC.Class
+        @caffeine.RPC.Class
         class Foo:
 
-            @RPC.PublicMethod
+            @caffeine.RPC.PublicMethod
             @classmethod
             def hello_world(self) -> str:
                 return "hello world"
 
         # spin up a worker that contains this class
-        RPCWorker = worker.RPCWorker({"Foo": Foo}, URL="inproc://test_objc")
+        RPCWorker = caffeine.worker.RPCWorker({"Foo": Foo}, URL="inproc://test_objc")
         RPCWorker.start()
         import tempfile
 
@@ -57,7 +57,7 @@ class TestSequence(unittest.TestCase):
         args.language = "objc"
         args.url = "inproc://test_objc"
         args.output = tempfile.mkdtemp()
-        print(codegen.codegen(args))
+        print(caffeine.codegen.codegen(args))
         import os.path
         print ("Generated to %s" % args.output)
         self.assertTrue(os.path.exists(args.output + "/Foo.m"))

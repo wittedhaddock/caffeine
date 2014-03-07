@@ -14,10 +14,10 @@ class TestSequence(unittest.TestCase):
         print("Everything started OK?")
 
         self.router = subprocess.Popen(
-            ["python3", os.path.join(caffeine.__path__[0], "router.py")], stdin=None, stdout=None, stderr=None)
+            ["python3", os.path.join(caffeine.__path__[0], "../caffeine_router")], stdin=None, stdout=None, stderr=None)
 
         self.worker = subprocess.Popen(
-            ["python3", os.path.join(caffeine.__path__[0], "testRouterWorkerProcess.py")], stdin=None, stdout=None, stderr=None)
+            ["python3", os.path.join("tests", "testRouterWorkerProcess.py")], stdin=None, stdout=None, stderr=None)
 
     def test_roundtrip(self):
         import zmq

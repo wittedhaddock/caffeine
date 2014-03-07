@@ -2,7 +2,7 @@
 #©2013 Drew Crawford Apps.  All Rights Reserved.
 # See LICENSE file for details.
 
-from . import pack
+import caffeine.pack
 import caffeine
 import zmq
 import umsgpack
@@ -96,10 +96,10 @@ class RPCWorker(Worker):
         selector = msg["_s"]
         security.selector_is_ok(obj, selector)
         method = getattr(obj, selector)
-        kwargs = pack.unpack(msg["_a"])
+        kwargs = caffeine.pack.unpack(msg["_a"])
         result = method(**kwargs)
         print("result is", result)
-        dictFormat = pack.pack(result)
+        dictFormat = caffeine.pack.pack(result)
         print("dict is", dictFormat)
         return umsgpack.dumps(dictFormat)
 
@@ -154,7 +154,7 @@ class RPCClient():
                             self.client.socket.recv_multipart()
 
                         packedObj = {
-                            "_c": self.class_name, "_s": self.method_name, "_a": pack.pack(kwargs)}
+                            "_c": self.class_name, "_s": self.method_name, "_a": caffeine.pack.pack(kwargs)}
                         packedBytes = umsgpack.dumps(packedObj)
 
                         result = self.client.socket.send(packedBytes)
@@ -164,7 +164,7 @@ class RPCClient():
                             result = result[1]
                         else:
                             result = result[0]
-                        return pack.unpack(umsgpack.loads(result))
+                        return caffeine.pack.unpack(umsgpack.loads(result))
                 return FunctionProxy(object.__getattribute__(self, "client"), object.__getattribute__(self, "class_name"), name)
 
         return ClassProxy(self, name)

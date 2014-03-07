@@ -7,7 +7,7 @@ __version__="0.2.0-dev"
 client_port = 55555
 
 #This is the port that moves data from the router to the server worker process
-internal_url = "ipc://caffeine_router"
+internal_url = "ipc://caffeine_router_ipc"
 
 
 #This is a well-known key that should ONLY BE USED FOR TESTING.
