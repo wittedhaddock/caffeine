@@ -75,10 +75,10 @@ class Worker:
     def stop(self):
         self.should_stop = True
 
-"""This class handles typical caffeine RPC requests"""
-
 
 class RPCWorker(Worker):
+
+    """This class handles typical caffeine RPC requests"""
 
     def __init__(self, root_objects, URL=caffeine.internal_url):
         self.root_objects = root_objects
@@ -111,26 +111,27 @@ class RPCClient():
         import caffeine.keytools
         (zeromq_url, z85_public, z85_private,
          z85_server) = caffeine.keytools.parseURL(url)
-        
+
         if z85_server:
-            #In this case, we enable encryption and assume we're talking to a ROUTER
+            # In this case, we enable encryption and assume we're talking to a
+            # ROUTER
             self.socket = context.socket(zmq.REQ)
             client_public, client_secret = zmq.curve_keypair()
             self.socket.curve_publickey = z85_public
             self.socket.curve_secretkey = z85_private
             self.socket.curve_serverkey = z85_server
-            self.burned_ready = True #not required for router
+            self.burned_ready = True  # not required for router
             self.router_style_messages = True
             self.socket.connect(zeromq_url)
 
         else:
-            #In this case, we handle direct mode
+            # In this case, we handle direct mode
             self.burned_ready = False
             self.socket = context.socket(zmq.REP)
             self.router_style_messages = False
             self.socket.bind(zeromq_url)
 
-        print (zeromq_url,z85_public,z85_private,z85_server)
+        print(zeromq_url, z85_public, z85_private, z85_server)
         print("client connecting to URL %s" % url)
 
     def __getattr__(self, name):
