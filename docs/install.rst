@@ -9,7 +9,7 @@ caffeine requires Python 3.3.  There are no plans to support earlier versions of
 caffeine has some other dependencies, particularly on pyzmq->libzmq->libsodium.  In general, the script :download:`mactricks.sh <../mactricks.sh>` on OSX, and the :download:`Dockerfile <../Dockertests>` on Linux are the way to resolve these.
 
 
-Pip
+Install
 ++++++++++++
 
 Once dependencies are met, you can install with pip.  
@@ -19,8 +19,13 @@ Once dependencies are met, you can install with pip.
      pip install path/to/release.gz
 
 
-Developer mode
-++++++++++++++++
+
+.. _development-mode:
+
+Development mode
++++++++++++++++++
+
+see :ref:`development-mode`
 
 caffeine is alpha, which means it often requires getting your hands dirty.  For this reason you should familiarize yourself with how to install caffeine for development.
 

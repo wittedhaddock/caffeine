@@ -554,6 +554,7 @@
 				3ADA0FF618C9AA4100AC1DB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3ADA0FF718C9AA4100AC1DB9 /* Build configuration list for PBXNativeTarget "CaffeineBasicExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +563,7 @@
 				3ADA0FF918C9AA4100AC1DB9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

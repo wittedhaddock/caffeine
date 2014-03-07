@@ -2,3 +2,4 @@
 *.sublime-workspace
 .vagrant
 docs/_build
+*xcuserdata*
