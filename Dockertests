@@ -8,5 +8,5 @@ RUN pip3.3 install coverage
 ADD . caffeine/
 EXPOSE 55555 55555
 
-ENTRYPOINT ["coverage-3.3","run","-a","--branch","caffeine/tests.py"]
+ENTRYPOINT ["coverage-3.3","run","-a","--branch","tests/tests.py"]
 
