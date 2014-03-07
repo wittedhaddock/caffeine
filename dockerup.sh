@@ -19,7 +19,11 @@ docker rm $(docker ps -a -q) || true
 REPORTS_PATH=`pwd`"/sonar-reports"
 mkdir -p $REPORTS_PATH
 docker run -e COVERAGE_FILE="/sonar-reports/coverage" -v $REPORTS_PATH:/sonar-reports -p 55556:55555 -cidfile=CIDFILE -i -t tctest  $PROGRAM_ARGS &
-while ! nc -z 127.0.0.1 55556; do sleep 1; echo "Waiting for local port to open"; done
+while ! nc -z 127.0.0.1 55556 do
+	sleep 1; 
+	echo "Waiting for local port to open"
+	docker logs $( docker ps -a -q)
+done
 killall ngrok || true
 ngrok -log=stdout -proto=tcp 55556 > ngrok.log &
 sleep 5 #we assume the tunnel is setup at this point
