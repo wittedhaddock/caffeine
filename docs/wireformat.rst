@@ -1,9 +1,23 @@
 Wire format
 =============
 
-This document describes the caffeine wire format.
+This document describes the caffeine wire format.  You would use this to understand the network stack implementation.
 
-RPC
+zeroMQ
+########
+
+At present caffeine uses `zeroMQ <http://zeromq.org>`_ with its `CurveZMQ <http://rfc.zeromq.org/spec:26>`_ extension.  :doc:`urls` are decoded into CurveZMQ parameters.
+
+.. _serialization:
+
+MsgPack
+########
+
+Caffeine serializes object graphs using the `MsgPack "v2" specification <https://github.com/msgpack/msgpack/blob/master/spec.md>`_.  You must be careful with MsgPack; not all implementations are compatible, and the difference is important.
+
+.. _rpc_wire:
+
+RPC Wire Format.
 #####
 
 Class methods (e.g. static methods)
