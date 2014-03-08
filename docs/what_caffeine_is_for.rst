@@ -13,7 +13,7 @@ While caffeine shares the perspective that today's servers are way too complex, 
 This principle impacts the design of many features, including:
 
 * Letting you write server-side code in a Real Actual Server Language (Python3)
-* Self-hosting as a first-class citizen.  caffeine can run anywhere, from AWS to DigitalOcean to your corporate datacenter to your basement.  You can spin up servers on your Jenkins install, or run a server locally to work offline.
+* Self-hosting as a first-class citizen: from AWS or DigitalOcean to your corporate datacenter or basement, caffeine can run anywhere.  You can spin up servers on your Jenkins install, or run a server locally to work offline.
 * Emphasizing writing server code where that works best, instead of shoehorning everything into the client
 
 Fast
