@@ -31,7 +31,7 @@ Contents:
    urls
    security
    wireformat
-   contributing
+   development
 
 
 

@@ -36,3 +36,12 @@ Build status
 .. |tests| image:: http://teamcity.drewcrawfordapps.com:8111/app/rest/builds/buildType:(id:caffeine_Dockertests)/statusIcon 
 			:target: http://teamcity.drewcrawfordapps.com:8111/viewType.html?buildTypeId=caffeine_Dockertests&guest=1
 
+
+Roadmap
+=========
+
+* 0.4 (TBA) ORM-focused release
+* 0.3 (TBA) security-focused release
+* 0.2 (March 2014, TBA) RPC
+* 0.1 (2013) private proof-of-concept
+

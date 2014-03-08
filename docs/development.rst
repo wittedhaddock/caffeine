@@ -3,7 +3,20 @@ Development
 
 This document covers the technical aspects of developing this caffeine release.  To find out how to get your patches accepted upstream, read our `contributor guide <https://github.com/drewcrawford/caffeine/blob/master/CONTRIBUTING.rst>`_.
 
-First steps
+Writing documentation
+######################
+
+Even if you're not hacking caffeine itself, you can help everyone by writing high-quality documentation about things that surprise you.
+
+This documentation lives in the `docs <https://github.com/drewcrawford/caffeine/tree/master/docs>`_ directory of the main repository and is built with sphinx.
+
+.. code-block:: bash
+   
+      cd docs
+      pip-3.3 install sphinx
+      make html && open _build/html/index.html
+
+Getting ready to hack
 ###########
 
 You should first have caffeine installed in :ref:`development-mode`.
